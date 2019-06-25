@@ -1,4 +1,8 @@
-# Project DeepSpeech
+# Project DeepSpeech with audio augmentation
+## update training.csv file with  column name "noise_filename". 
+```
+wav_filename,wav_filesize,transcript,noise_filename
+```
 
 [![Task Status](https://github.taskcluster.net/v1/repository/mozilla/DeepSpeech/master/badge.svg)](https://github.taskcluster.net/v1/repository/mozilla/DeepSpeech/master/latest)
 
