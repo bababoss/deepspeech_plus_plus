@@ -538,19 +538,19 @@ def train():
 
                     # Edited by suresh 
                     # Early stopping 
-#                     if FLAGS.early_stop and len(dev_losses) >= FLAGS.es_steps:
-#                         mean_loss = np.mean(dev_losses[-FLAGS.es_steps:-1])
-#                         std_loss = np.std(dev_losses[-FLAGS.es_steps:-1])
-#                         dev_losses = dev_losses[-FLAGS.es_steps:]
-#                         log_debug('Checking for early stopping (last %d steps) validation loss: '
-#                                   '%f, with standard deviation: %f and mean: %f' %
-#                                   (FLAGS.es_steps, dev_losses[-1], std_loss, mean_loss))
-#                         if dev_losses[-1] > np.max(dev_losses[:-1]) or \
-#                            (abs(dev_losses[-1] - mean_loss) < FLAGS.es_mean_th and std_loss < FLAGS.es_std_th):
-#                             log_info('Early stop triggered as (for last %d steps) validation loss:'
-#                                      ' %f with standard deviation: %f and mean: %f' %
-#                                      (FLAGS.es_steps, dev_losses[-1], std_loss, mean_loss))
-#                             break
+                    if FLAGS.early_stop and len(dev_losses) >= FLAGS.es_steps:
+                        mean_loss = np.mean(dev_losses[-FLAGS.es_steps:-1])
+                        std_loss = np.std(dev_losses[-FLAGS.es_steps:-1])
+                        dev_losses = dev_losses[-FLAGS.es_steps:]
+                        log_debug('Checking for early stopping (last %d steps) validation loss: '
+                                  '%f, with standard deviation: %f and mean: %f' %
+                                  (FLAGS.es_steps, dev_losses[-1], std_loss, mean_loss))
+                        if dev_losses[-1] > np.max(dev_losses[:-1]) or \
+                           (abs(dev_losses[-1] - mean_loss) < FLAGS.es_mean_th and std_loss < FLAGS.es_std_th):
+                            log_info('Early stop triggered as (for last %d steps) validation loss:'
+                                     ' %f with standard deviation: %f and mean: %f' %
+                                     (FLAGS.es_steps, dev_losses[-1], std_loss, mean_loss))
+                            break
         except KeyboardInterrupt:
             pass
         log_info('FINISHED optimization in {}'.format(datetime.utcnow() - train_start_time))
